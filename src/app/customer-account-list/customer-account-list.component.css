@@ -1,0 +1,62 @@
+.parent{
+    min-height: 900px;
+ }
+ .imageClass{
+    width:200px;
+    height:200px;
+ }
+ .container-fluid{
+     margin-top: 30px;
+     width: 85%;
+ }
+ /* .vertical-align{
+     display: flex;
+     align-items: center;
+ }
+ 
+ .details li {
+     list-style: none;
+   }
+   li {
+       margin-bottom:10px;
+       
+   } */
+ 
+ .card-body {
+     height: 300px;
+ 
+ }
+ 
+ .delBtn, .editBtn  {
+    width: 50%;
+    margin: 10px;
+ }
+
+
+.btnCreate{
+    margin-top: 15px;
+   margin-bottom: 25px;
+}
+.createbutton, .exportBtn{
+    width:120px;
+}
+.exportBtn{
+    margin-left: 10px;
+    background-color: green;
+}
+a{
+   text-decoration: none;
+   color: black;
+}
+
+.employee-search-field::placeholder{
+    color:white;
+}
+.SearchValue{
+    color:white;
+    
+}
+
+.employee-search-field{
+    width: 250px;
+}

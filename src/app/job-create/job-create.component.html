@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row d-flex justify-content-center">
+
+        <div class="col-md-10 form-create">
+
+            <form class="form-group" [formGroup]="jobForm" (ngSubmit)="onFormSubmit()">
+                <div class="row">
+                    <h1 style=" text-align: center; 
+                              margin-left: 280px;
+                              margin-bottom: 50px;">CREATE NEW JOB
+                    </h1>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-5">
+                        <mat-form-field>
+                            <input matInput spellcheck="false" required placeholder="Code" required formControlName="job_code">
+                            <mat-error>
+                                {{ formErrors['job_code'] }}
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <input matInput spellcheck="false" required placeholder="Job Name" required formControlName="job_name">
+                            <mat-error>
+                                {{ formErrors['job_name'] }}
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <input matInput spellcheck="false" required placeholder="Description" required formControlName="job_description">
+                            <mat-error>
+                                {{ formErrors['job_description'] }}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row btnGroup">
+                    <div class=" mt-5">
+                        <!-- <button type="submit" class="btn btn-primary mt-3" [disabled]="customerForm.invalid">
+                          Submit
+                      </button> -->
+                        <button type="submit" class="btn btn-primary mt-1" mat-raised-button color="primary" [disabled]="jobForm.invalid">
+                          Submit
+                      </button>
+                        <button type="button" class="btn btn-danger mt-3 ml-2" (click)="cancel()" mat-raised-button color="warn">Back
+                      </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- <button type="submit" class="btn btn-primary" (click)="successfully()">test</button> -->
+<!-- <pre>{{jobForm.value | json}}</pre> -->

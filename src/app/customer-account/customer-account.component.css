@@ -1,0 +1,35 @@
+
+body{
+    background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.container{
+    /* justify-content: center; */
+    padding: 30px;
+}
+.form-create{
+    padding-left: 200px;
+    padding-top: 100px;
+    background: #fff;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 70%;
+    height: 650px;
+    -webkit-box-shadow: 11px 3px 17px -11px rgba(0,0,0,0.62);
+    -moz-box-shadow: 11px 3px 17px -11px rgba(0,0,0,0.62);
+    box-shadow: 11px 3px 17px -11px rgba(0,0,0,0.62);
+}
+mat-form-field{
+    width: 250px;
+}
+.btnGroup{
+    padding-left: 280px;
+}
+
+
+
+

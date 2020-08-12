@@ -1,0 +1,99 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+            </div>
+            <div class="btnCreate">
+                <a routerLink="/createcustomer">
+                    <button class="createbutton" mat-raised-button>
+            <mat-icon>add_box</mat-icon>
+            CREATE
+          </button>
+                </a>
+                <button type="submit" class="exportBtn" mat-raised-button color="primary" (click)="getReportJobList()">
+          <mat-icon>get_app</mat-icon>
+          EXPORT  
+        </button>
+            </div>
+
+            <mat-form-field class="employee-search-field">
+                <mat-label style="color:white;">SEARCH</mat-label>
+                <input class="SearchValue" (keyup)="apllyFilter($event.target.value)" matInput>
+            </mat-form-field>
+
+            <mat-table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+                <ng-container matColumnDef="first_name">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>First Name</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.first_name}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="last_name">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.last_name}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="gender">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Gender</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.gender | lowercase }}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="address">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Address</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.address}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="city">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>City</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.city}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="email">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.email}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="phone_number">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Phone Number</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.phone_number}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="description">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Description</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.description}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="job_name">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Job</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.job_name}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="imgUrl">
+                    <mat-header-cell *matHeaderCellDef>Img</mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <img *ngIf="element.imgUrl" src="{{element.imgUrl}}" width="50" height="50">
+                        <img *ngIf="!element.imgUrl" src="../assets/img/user.png" width="50" height="50">
+                    </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="customer_id">
+                    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <a routerLink="/customerdetail/{{element.customer_id}}">
+                            <button mat-button color="primary">
+                              <mat-icon>login</mat-icon>
+                            </button>
+                        </a>
+                        <button mat-button color="warn" (click)="deleteCustomer(element.customer_id)">
+                          <mat-icon>delete</mat-icon>
+                        </button>
+                    </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+            </mat-table>
+            <mat-paginator [pageSizeOptions]="[10,20,50]" showFirstLastButtons></mat-paginator>
+
+            <!-- <mat-paginator [pageSizeOptions]="[10,20,50]" showFirstLastButtons></mat-paginator> -->
+
+        </div>
+    </div>
+</div>
+<hr>

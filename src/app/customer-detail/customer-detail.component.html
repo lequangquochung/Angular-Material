@@ -1,0 +1,68 @@
+<!-- <div class="container">
+  <div class="parent" *ngIf="customer">
+    <div class="row">
+      <div class="column">
+        <div class="card">
+          <img *ngIf="customer.imgUrl" src="{{customer.imgUrl}}" height="100" width="100">
+          <div class="img-box" *ngIf="customer.imgUrl == null">
+            <img [src]="customer.imgUrl" height="100" width="100">
+          </div>         
+          <div class="container">
+            <h2 hidden>{{customer.customer_id}}</h2>
+            <p class="title">{{customer.last_name}}</p>
+            <p>{{customer.address}}</p>            
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-secondary mt-3" [disabled]="">
+      <a routerLink="/customerdetail/{{customer.customer_id}}/edit">Edit</a>
+    </button>
+    <button class="btn btn-danger" title="Delete Customer" (click)="deleteCustomer(customer.customer_id)">Delete</button>
+  </div>
+</div> -->
+
+<div class="container">
+  <div class="card">
+    <div class="row" *ngIf="customer">
+      <div class="col-md-4 imgUser ">
+        <img class="img-fluid img-user" *ngIf="customer.imgUrl !== null" src="{{customer.imgUrl}}">
+
+        <img class="img-fluid img-user-null" *ngIf="customer.imgUrl == null || customer.imgUrl == ''"
+          src="../assets/img/default-user.png" >
+      </div>
+      <div class="col-md-8">
+        <div class="content">
+          <div class="row">
+            <div class="col-md-6">
+              <h1> {{customer.last_name}} {{customer.first_name}}</h1>
+              <p><i class="fas fa-transgender-alt"></i> : {{customer.gender}}</p>
+              <p><i class="fas fa-address-card"></i> : {{customer.address}}</p>
+              <p><i class="fas fa-phone"></i> : {{customer.phone_number}}</p>
+              <p><i class="fas fa-city"></i> : {{customer.city}}</p>
+            </div>
+            <div class="col-md-6 mt-5">
+              <p><i class="fas fa-envelope-open"></i> : {{customer.email}}</p>
+              <p><i class="fas fa-laptop"></i> : {{customer.job_name}}</p>
+              <p><i class="fas fa-sticky-note"></i> : {{customer.description}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="btnGroup">
+              <a routerLink="/customerdetail/{{customer.customer_id}}/edit">
+                <button mat-button color="primary">
+                  <mat-icon>login</mat-icon>
+                </button>
+              </a>
+              <button mat-button color="warn" (click)="deleteCustomer(customer.customer_id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

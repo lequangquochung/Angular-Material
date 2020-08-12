@@ -1,0 +1,66 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="btnCreate">
+                <a routerLink="/createjob">
+                    <button class="createbutton" mat-raised-button>
+                        <mat-icon>add_box</mat-icon>
+                            CREATE JOB
+                    </button>
+                </a>
+                <button type="submit" class="exportBtn" mat-raised-button color="primary" (click)="getReportJobList()">
+                    <mat-icon>get_app</mat-icon>
+                        EXPORT  
+                </button>
+            </div>
+
+            <mat-form-field class="employee-search-field">
+                <mat-label style="color:white;">SEARCH</mat-label>
+                <input class="SearchValue" (keyup)="apllyFilter($event.target.value)" matInput>
+            </mat-form-field>
+
+
+            <mat-table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+                <ng-container matColumnDef="job_code">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Code</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.job_code}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="job_name">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.job_name}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="job_description">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Description</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.job_description}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="totalCustomer">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Total</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.totalCustomer}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="job_id">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <a routerLink="/jobdetail/{{element.job_id}}">
+                            <button mat-button color="primary">
+                <mat-icon>login</mat-icon>
+              </button>
+                        </a>
+                        <button mat-button color="warn" (click)="deleteJob(element.job_id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+                    </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+            </mat-table>
+            <mat-paginator [pageSizeOptions]="[10,20,50]" showFirstLastButtons></mat-paginator>
+
+        </div>
+    </div>
+</div>

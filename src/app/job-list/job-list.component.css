@@ -1,0 +1,55 @@
+
+body{
+    background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
+}
+a{
+    text-decoration: none;
+    
+}
+table {
+  
+    width: 80%;
+}
+
+/* Custom */
+.container-fluid {
+    margin-top: 30px;
+    width: 80%;
+}
+.employee-search-field, mat-label{
+    color: black;
+}
+
+.card-body {
+    height: 300px;
+
+}
+
+/*  */
+.btnCreate{
+    margin-top: 15px;
+   margin-bottom: 25px;
+}
+.createbutton, .exportBtn{
+    width:130px;
+}
+.exportBtn{
+    margin-left: 10px;
+    background-color: green;
+}
+a{
+   text-decoration: none;
+   color: black;
+}
+
+.employee-search-field::placeholder{
+    color:white;
+}
+.SearchValue{
+    color:white;
+    
+}
+
+.employee-search-field{
+    width: 270px;
+}

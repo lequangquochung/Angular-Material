@@ -1,0 +1,210 @@
+<!-- <div class="container contact-form">
+    <div class="contact-image">
+        <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact" />
+        <h1>Create New Customer</h1>
+    </div>
+    <form [formGroup]="customerForm" (ngSubmit)="onFormSubmit()">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="First Name" formControlName="first_name" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="City" formControlName="city" />
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Address" formControlName="address" />
+                </div>
+                <div class="form-group">
+                    <select class="form-control" formControlName="job_id">
+                        <option *ngFor="let item of jobList" value="{{item.job_id}}">
+                            {{item.job_name}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group form-check form-check-inline">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" value="Male" name="gender"
+                            formControlName="gender">
+                        <label class="form-check-label" for="inlineRadio1">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" value="Female" name="gender"
+                            formControlName="gender">
+                        <label class="form-check-label" for="inlineRadio2">Female</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Last Name" formControlName="last_name" />
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Email" formControlName="email" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Phone Number" formControlName="phone_number" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Description" formControlName="description" />
+                </div>
+                <div class="form-group">
+                    <label class="custom-file-upload">
+                        <input type="file" accept="image/*" (change)="onSelectFile($event)" formControlName="imgUrl">
+                        <i class="far fa-images"></i> Choose a Photo
+                    </label>
+                    <div class="form-group mt-1">
+                        <img src="{{urlImage}}" alt="" height="80" width="90">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center mt-5">
+            <button type="submit" class="btn btn-primary mt-3" [disabled]="customerForm.invalid">
+                Submit
+            </button>
+            <div>
+                <button type="button" class="btn btn-danger mt-3 cancelBtn" (click)="cancel()">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </form>
+</div> -->
+
+
+<!-- <button type="submit" class="btn btn-primary" (click)="successfully()">test</button> -->
+
+
+<div class="container ">
+    <div class="row d-flex justify-content-center">
+
+        <div class="col-md-12 form-create">
+
+            <form class="form-group" [formGroup]="customerForm" (ngSubmit)="onFormSubmit()">
+                <div class="row">
+                    <h1 style="text-align: center; 
+                                margin-left: 220px;
+                                margin-bottom: 30px;">CREATE NEW CUSTOMER</h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <input matInput spellcheck="false" required placeholder="First Name" required formControlName="first_name">
+                            <mat-error>
+                                {{ formErrors['first_name'] }}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <input matInput spellcheck="false" placeholder="Last Name" formControlName="last_name" required>
+                            <mat-error>
+                                {{ formErrors['last_name'] }}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <input matInput spellcheck="false" placeholder="Address" formControlName="address" required>
+                            <mat-error>
+                                {{ formErrors['address'] }}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <input matInput spellcheck="false" placeholder="City" formControlName="city" required>
+
+                            <mat-error>
+                                {{ formErrors['city'] }}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mt-3">
+                            <mat-radio-group formControlName="gender">
+                                <mat-radio-button value="Male">Male</mat-radio-button>
+                                <mat-radio-button class="ml-1" value="Female">Female</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <input matInput spellcheck="false" placeholder="Email" formControlName="email" required>
+
+                            <mat-error>
+                                {{ formErrors['email'] }}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <select matNativeControl required formControlName="job_id">
+                                <option *ngFor="let item of jobList" value="{{item.job_id}}">
+                                    {{item.job_name}}
+                                </option>
+                            </select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <input matInput spellcheck="false" placeholder="Phone Number" required formControlName="phone_number">
+                            <mat-error>
+                                {{ formErrors['phone_number'] }}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <input matInput spellcheck="false" placeholder="Description" formControlName="description" required>
+                            <mat-error>
+                                {{ formErrors['description'] }}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mt-3 imgUpload">
+                            <button type="button" mat-button color="warn" (click)="fileInput.click()">
+                                <span class="material-icons">
+                                    cloud_upload
+                                </span>
+                            </button>
+                            <!-- <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button> -->
+                            <input hidden (change)="onSelectFile($event)" accept="image/*" #fileInput type="file" formControlName="imgUrl" id="file">
+                            <div class="form-group mt-1">
+                                <img src="{{urlImage}}" alt="" height="80" width="90">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row btnGroup">
+                    <div class=" mt-5">
+                        <!-- <button type="submit" class="btn btn-primary mt-3" [disabled]="customerForm.invalid">
+                            Submit
+                        </button> -->
+                        <button type="submit" class="btn btn-primary mt-3" mat-raised-button color="primary" [disabled]="customerForm.invalid">
+                            Submit
+                        </button>
+
+                        <button type="button" class="btn btn-danger mt-3 ml-2" (click)="cancel()" mat-raised-button color="warn">
+                            Cancel
+                        </button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- <pre style="color:white;">{{customerForm.value | json}}</pre> -->
